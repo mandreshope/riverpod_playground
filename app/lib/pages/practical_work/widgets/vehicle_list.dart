@@ -1,4 +1,5 @@
 import 'package:app/pages/practical_work/vehicle_manager_page.dart';
+import 'package:app/pages/practical_work/view_models/vehicle_manager_view_model.dart';
 import 'package:app/router/go_router_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,9 +21,7 @@ class VehicleList extends ConsumerWidget {
           subtitle: Text(id),
           trailing: IconButton(
             onPressed: () {
-              ref.read(vehiclesProvider.notifier).state = [
-                ...ref.read(vehiclesProvider.notifier).state
-              ]..removeAt(index);
+              ref.read(vehicleManagerViewModelProvider).deleteVehicle(id);
             },
             icon: const Icon(Icons.delete),
           ),

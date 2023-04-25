@@ -40,10 +40,6 @@ class Vehicle {
   final String description;
 }
 
-bool yearIsValid(String year) {
-  return int.tryParse(year) != null;
-}
-
 class VehicleManagerPage extends StatelessWidget {
   const VehicleManagerPage({Key? key}) : super(key: key);
 

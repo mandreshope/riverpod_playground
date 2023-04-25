@@ -64,7 +64,7 @@ class _IdText extends StatelessWidget {
 }
 
 class _NameText extends ConsumerWidget {
-  const _NameText({super.key, required this.vehicleId});
+  const _NameText({Key? key, required this.vehicleId}) : super(key: key);
   final String vehicleId;
 
   @override
@@ -77,7 +77,7 @@ class _NameText extends ConsumerWidget {
 }
 
 class _YearText extends ConsumerWidget {
-  const _YearText({super.key, required this.vehicleId});
+  const _YearText({Key? key, required this.vehicleId}) : super(key: key);
   final String vehicleId;
 
   @override
@@ -90,7 +90,7 @@ class _YearText extends ConsumerWidget {
 }
 
 class _DescriptionText extends ConsumerWidget {
-  const _DescriptionText({super.key, required this.vehicleId});
+  const _DescriptionText({Key? key, required this.vehicleId}) : super(key: key);
   final String vehicleId;
 
   @override
