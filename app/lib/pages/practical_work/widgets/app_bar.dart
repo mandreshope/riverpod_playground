@@ -18,14 +18,18 @@ class AppBarWidget extends ConsumerWidget with PreferredSizeWidget {
         if (showAddSection)
           IconButton(
             onPressed: () {
-              ref.read(showAddSectionProviderProvider.notifier).update((state) => false);
+              ref
+                  .read(showAddSectionProviderProvider.notifier)
+                  .update((state) => false);
             },
             icon: const Icon(Icons.close),
           )
         else
           IconButton(
             onPressed: () {
-              ref.read(showAddSectionProviderProvider.notifier).update((state) => true);
+              ref
+                  .read(showAddSectionProviderProvider.notifier)
+                  .update((state) => true);
             },
             icon: const Icon(Icons.add),
           ),

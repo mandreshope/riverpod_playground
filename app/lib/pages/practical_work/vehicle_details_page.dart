@@ -1,9 +1,11 @@
 import 'package:app/pages/practical_work/vehicle_manager_page.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class VehicleDetailsPage extends StatelessWidget {
-  const VehicleDetailsPage({Key? key, required this.vehicleId}) : super(key: key);
+  const VehicleDetailsPage({Key? key, required this.vehicleId})
+      : super(key: key);
 
   final String vehicleId;
 
@@ -61,38 +63,41 @@ class _IdText extends StatelessWidget {
   }
 }
 
-class _NameText extends StatelessWidget {
-  const _NameText({Key? key, required this.vehicleId}) : super(key: key);
-
+class _NameText extends ConsumerWidget {
+  const _NameText({super.key, required this.vehicleId});
   final String vehicleId;
 
   @override
-  Widget build(BuildContext context) {
-    final vehicle = currentVehicles.firstWhereOrNull((element) => element.id == vehicleId);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentVehicles = ref.watch(vehiclesProvider);
+    final vehicle =
+        currentVehicles.firstWhereOrNull((element) => element.id == vehicleId);
     return Text('name: ${vehicle?.name}');
   }
 }
 
-class _YearText extends StatelessWidget {
-  const _YearText({Key? key, required this.vehicleId}) : super(key: key);
-
+class _YearText extends ConsumerWidget {
+  const _YearText({super.key, required this.vehicleId});
   final String vehicleId;
 
   @override
-  Widget build(BuildContext context) {
-    final vehicle = currentVehicles.firstWhereOrNull((element) => element.id == vehicleId);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentVehicles = ref.watch(vehiclesProvider);
+    final vehicle =
+        currentVehicles.firstWhereOrNull((element) => element.id == vehicleId);
     return Text('year: ${vehicle?.year}');
   }
 }
 
-class _DescriptionText extends StatelessWidget {
-  const _DescriptionText({Key? key, required this.vehicleId}) : super(key: key);
-
+class _DescriptionText extends ConsumerWidget {
+  const _DescriptionText({super.key, required this.vehicleId});
   final String vehicleId;
 
   @override
-  Widget build(BuildContext context) {
-    final vehicle = currentVehicles.firstWhereOrNull((element) => element.id == vehicleId);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentVehicles = ref.watch(vehiclesProvider);
+    final vehicle =
+        currentVehicles.firstWhereOrNull((element) => element.id == vehicleId);
     return Text('description: ${vehicle?.description}');
   }
 }
